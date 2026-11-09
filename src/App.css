@@ -1,0 +1,725 @@
+.roster {
+  width: min(100% - 40px, 640px);
+  margin: 56px auto;
+  text-align: left;
+}
+
+.roster-header {
+  margin-bottom: 32px;
+}
+
+.roster-header .eyebrow {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.roster-header h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+.roster-count {
+  margin-top: 8px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  padding: 10px 16px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.tab.active {
+  border-bottom-color: var(--accent);
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.tab-panel {
+  min-width: 0;
+}
+
+.player-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: end;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.player-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-h);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.player-form input,
+.player-form select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.player-form input:focus-visible,
+.player-form select:focus-visible,
+.player-form button:focus-visible,
+.team-form select:focus-visible,
+.team-form button:focus-visible,
+.match-create-form select:focus-visible,
+.match-create-form button:focus-visible,
+.match-fields input:focus-visible,
+.match-fields select:focus-visible,
+.match-fields button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.player-form button,
+.team-form button,
+.match-create-form button,
+.match-fields button,
+.player-edit-form button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--accent);
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.player-form button:disabled,
+.team-form button:disabled,
+.match-create-form button:disabled,
+.match-fields button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.team-section {
+  margin-top: 40px;
+}
+
+.team-section h2 {
+  margin-bottom: 4px;
+}
+
+.section-description {
+
+  color: var(--text);
+}
+
+.team-membership-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.team-membership-toggle span {
+  display: grid;
+  gap: 2px;
+  font-weight: 600;
+}
+
+.team-membership-toggle small {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.team-membership-toggle input {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  flex: 0 0 auto;
+  margin: 0;
+  appearance: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #9ca3af;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.team-membership-toggle input::before {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  content: '';
+  transition: transform 0.2s ease;
+}
+
+.team-membership-toggle input:checked {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.team-membership-toggle input:checked::before {
+  transform: translateX(18px);
+}
+
+.team-membership-toggle input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.team-form {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: end;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.team-form label:nth-child(-n + 2) {
+  grid-column: span 3;
+}
+
+.team-form label:nth-child(n + 3),
+.team-form > button {
+  grid-column: span 2;
+}
+
+.team-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-h);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.team-form select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.team-form input,
+.team-rename-form input,
+.team-rename-form select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.team-form input:focus-visible,
+.team-rename-form input:focus-visible,
+.team-rename-form select:focus-visible,
+.team-rename-form button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.team-rename-form {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) minmax(140px, 1fr) auto auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.team-rename-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-h);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.team-rename-form button {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--accent);
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.team-rename-form .secondary-button,
+.team-actions .secondary-button {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-h);
+}
+
+.team-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.team-actions .secondary-button {
+  padding: 6px 10px;
+  border-radius: 5px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.team-actions .remove-button {
+  color: #b42318;
+}
+
+.team-actions button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.match-section {
+  margin-top: 8px;
+}
+
+.match-section h2 {
+  margin-bottom: 4px;
+}
+
+.match-create-form,
+.match-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: end;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.match-create-form label,
+.match-fields label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-h);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.match-create-form select,
+.match-fields input,
+.match-fields select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.match-list {
+  display: grid;
+  gap: 16px;
+}
+
+.match-group-title {
+  margin: 24px 0 8px;
+  color: var(--text-h);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.match-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.match-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--text-h);
+}
+
+.match-teams span {
+  color: var(--text);
+}
+
+.results-section {
+  margin-top: 8px;
+}
+
+.results-team-filter {
+  display: grid;
+  max-width: 360px;
+  gap: 6px;
+  margin-bottom: 16px;
+  color: var(--text-h);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.results-filter-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.results-filter-count {
+  margin-left: auto;
+  padding-bottom: 10px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.results-team-filter select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.results-team-filter select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.standings-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.standings-list li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto auto;
+  gap: 16px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-h);
+}
+
+.standing-rank {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.results-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.results-list li {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.result-score {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-h);
+}
+
+.result-score-value {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+}
+
+.result-match-type {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.result-team {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.result-team-right {
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.result-team-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.result-winning-points {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.team-member-suffix {
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+.winner-medal {
+  flex: 0 0 auto;
+  font-size: 18px;
+}
+
+.result-winner {
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.match-fields {
+  grid-template-columns: 1fr 1fr 1fr 1fr auto;
+  padding: 0;
+  border: 0;
+}
+
+.subsection-title {
+  margin: 24px 0 8px;
+  font-size: 18px;
+}
+
+.team-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.team-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.team-color-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  border: 1px solid rgb(0 0 0 / 15%);
+  border-radius: 2px;
+  vertical-align: 1px;
+}
+
+.player-list-section {
+  margin-top: 32px;
+}
+
+.player-list-section h2 {
+  margin-bottom: 12px;
+}
+
+.player-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.player-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.player-edit-form {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: end;
+  gap: 12px;
+}
+
+.player-edit-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-h);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.player-edit-form input,
+.player-edit-form select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.player-edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.player-edit-form button:focus-visible,
+.player-edit-form input:focus-visible,
+.player-edit-form select:focus-visible,
+.player-list .secondary-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.player-list .secondary-button {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--text-h);
+  font: inherit;
+  cursor: pointer;
+}
+
+.player-edit-form .secondary-button {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-h);
+}
+
+.player-list code {
+  overflow: hidden;
+  max-width: 45%;
+  color: var(--text);
+  font-size: 12px;
+  text-overflow: ellipsis;
+}
+
+.empty-message {
+  color: var(--text);
+}
+
+.gender-emoji {
+  display: inline-block;
+  margin-inline-start: 5px;
+  vertical-align: -2px;
+}
+
+.error-message {
+  margin-top: 16px;
+  color: #b42318;
+}
+
+@media (max-width: 600px) {
+  .roster {
+    margin: 32px auto;
+  }
+
+  .player-form {
+    grid-template-columns: 1fr;
+  }
+
+  .player-edit-form {
+    grid-template-columns: 1fr;
+  }
+
+  .team-form {
+    grid-template-columns: 1fr;
+  }
+
+  .team-form label,
+  .team-form > button {
+    grid-column: auto;
+  }
+
+  .team-rename-form {
+    grid-template-columns: 1fr;
+  }
+
+  .match-create-form,
+  .match-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .team-list li {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .team-actions {
+    align-self: flex-start;
+  }
+
+  .standings-list li {
+    grid-template-columns: 28px 1fr auto;
+  }
+
+  .standings-list li span:nth-child(2) {
+    grid-column: 2 / -1;
+  }
+}
